@@ -1,0 +1,22 @@
+noise_configs:
+  cosine:
+    tau: 3.0
+
+model_configs:
+  max_steps: 500
+  num_cls: 2
+  emb_dim: 64
+  feature_dim: 10
+  hid_dim: 64
+  bidirectional: True
+  device: "cpu"
+  state_dict_path: checkpoints/denoiser_mse_0_204_rmspe_83_7.pt
+
+sampling_configs:
+  guidance_strength: 3.0
+  batch_size: 200
+  ts_length: 5
+  feature_dim: 10
+
+data_configs:
+  stats_path: data/stats.pkl
