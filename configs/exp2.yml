@@ -1,0 +1,34 @@
+data_configs:
+  data_path: data/ref_data.pkl
+  label_path: data/ref_label.pkl
+  batch_size: 64
+  stats_path: data/class_stats.pkl
+
+noise_configs:
+  method: cosine
+  cosine:
+    tau: 3.0
+  sigmoid:
+    tau: 3.0
+
+model_configs:
+  max_steps: 500
+  num_cls: 2
+  emb_dim: 64
+  feature_dim: 10
+  hid_dim: 64
+  bidirectional: True
+  device: "cpu"
+
+train_configs:
+  lr: 0.0005
+  train_unconditional: True
+  cls_weights:
+    - 0.9
+    - 0.1
+  tau: 1.0
+  gamma: 0.25
+  num_warmup_steps: 500
+  num_training_steps: 5000
+  patience: 50
+  state_dict_out_path: checkpoints/denoiser_exp2.pt
